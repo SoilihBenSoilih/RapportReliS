@@ -1,0 +1,75 @@
+
+grammar org.xtext.slr.ReliSRS with org.eclipse.xtext.common.Terminals
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+generate reliSRS "http://www.xtext.org/slr/ReliSRS"
+
+Model: 
+	   'ProjectName:' projectName=ProjectName
+	   ('Participants:' participants=Participants)
+	   ('Phase:' phase += Phases*)*
+	   ('Classification:' classification = Classification);
+	   
+	  
+ProjectName:CHAINE;
+
+Participants : {Participants} ('{' 'Participant:' participant += Participant* 'Role:' role += Role* '}')*;
+
+Participant: CHAINE;
+Role: CHAINE;
+
+Classification: {Classification} ('{' 'question:' question += Question 
+										 (
+										'{'
+										'response:' response += Response 
+										'result:' resultat += Resultat 
+								   		'}'
+								   		 )*
+								   '}')*;
+
+Question: CHAINE;
+Response: CHAINE;
+Resultat:ENTIER;
+
+Phases: {Phases}
+		( phaseName = PhaseName
+		('{'  
+	    ('DecisionPerUser:' decisionPerUser=DecisionPerUser) 
+	    ('StatisticsOnExclusionCriteria:' statisticsOnExclusionCriteria=StatisticsOnExclusionCriteria)
+	    ('ConflictResolution:' conflictResolution=ConflictResolution)
+	    ('Result:' result=Result)
+	    '}')
+	    );
+
+PhaseName:CHAINE;
+
+DecisionPerUser: {DecisionPerUser} ('{' 'D_User:' dUser+=DUser*  'D_Included:' dIncluded+=DIncluded* 'D_Excluded:' dExcluded+=DExcluded* 'D_InConfclict:' dInConflict+=DInConflict* '}')*;
+
+DUser: CHAINE;
+DIncluded:ENTIER;
+DExcluded:ENTIER;
+DInConflict:ENTIER;
+
+StatisticsOnExclusionCriteria: {StatisticsOnExclusionCriteria} ('{' 'S_Criteria:' sCriteria+=SCriteria* 'S_Nombre:' sNombre+=SNombre* 'S_Pourcentage:' sPourcentage+=SPourcentage* '}')*;
+
+SCriteria:CHAINE;
+SNombre:ENTIER;
+SPourcentage:INT*'.'INT*;
+
+ConflictResolution: {ConflictResolution} ('{' 'C_Decision:' cDecision+=CDecision* 'C_Nombre:' cNombre+=CNombre* '}')*;
+
+enum CDecision: CresolvedIncluded = 'Resolved included' | CresolvedExcluded = 'Resolved excluded' | CpendingConflict = 'Pending conflicts';
+
+CNombre:ENTIER;
+
+Result:{Result} 'R_Total:' rTotal=RTotal   ('{' 'R_Decision:' rDecision+=RDecision* 'R_Paper:' rPaper+=RPaper* 'R_Pourcentage:' rPourcentage+=RPourcentage* '}')* ;
+
+enum RDecision: RIncluded = 'Included' | RExcluded = 'Excluded' | RInConflict = 'In conflict' | RInReview = 'In review' | RPending = 'Pending';
+
+
+RTotal:ENTIER;
+RPaper:ENTIER;
+RPourcentage:INT*'.'INT*;
+
+
+ENTIER returns ecore::EInt : INT+;
+CHAINE returns ecore::EString : ID+;

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="reliSRS" nsURI="http://www.xtext.org/slr/ReliSRS" nsPrefix="reliSRS">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" eType="#//Participants"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phase" upperBound="-1"
+        eType="#//Phases" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classification" eType="#//Classification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Participants">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="participant" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Classification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="question" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="response" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resultat" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Phases">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decisionPerUser" eType="#//DecisionPerUser"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statisticsOnExclusionCriteria"
+        eType="#//StatisticsOnExclusionCriteria" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conflictResolution" eType="#//ConflictResolution"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//Result"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DecisionPerUser">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dUser" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dIncluded" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dExcluded" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dInConflict" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatisticsOnExclusionCriteria">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sCriteria" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sNombre" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sPourcentage" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConflictResolution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cDecision" unique="false"
+        upperBound="-1" eType="#//CDecision"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cNombre" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CDecision">
+    <eLiterals name="CresolvedIncluded" literal="Resolved included"/>
+    <eLiterals name="CresolvedExcluded" value="1" literal="Resolved excluded"/>
+    <eLiterals name="CpendingConflict" value="2" literal="Pending conflicts"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Result">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rTotal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rDecision" unique="false"
+        upperBound="-1" eType="#//RDecision"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rPaper" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rPourcentage" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RDecision">
+    <eLiterals name="RIncluded" literal="Included"/>
+    <eLiterals name="RExcluded" value="1" literal="Excluded"/>
+    <eLiterals name="RInConflict" value="2" literal="In conflict"/>
+    <eLiterals name="RInReview" value="3" literal="In review"/>
+    <eLiterals name="RPending" value="4" literal="Pending"/>
+  </eClassifiers>
+</ecore:EPackage>

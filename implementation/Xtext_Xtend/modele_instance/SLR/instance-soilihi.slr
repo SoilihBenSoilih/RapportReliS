@@ -1,0 +1,169 @@
+ProjectName: Xtext Gammar
+
+Participants: 
+
+{ Participant: Soilihi Role: Project admin} 
+
+
+ Phase: Screen title and abstract
+
+ { 
+DecisionPerUser: 
+
+
+ { 
+       D_User: Soilihi BEN SOILIHI
+       D_Included: 4
+       D_Excluded: 1
+       D_InConfclict: 0
+} 
+
+
+ StatisticsOnExclusionCriteria: 
+
+
+ { 
+       S_Criteria: Dont talk about Xtext Grammar
+       S_Nombre: 1
+       S_Pourcentage: 100.0
+} 
+
+
+ ConflictResolution: 
+
+
+ { 
+       C_Decision: Resolved included
+       C_Nombre: 0
+} 
+
+ { 
+       C_Decision: Resolved excluded
+       C_Nombre: 0
+} 
+
+ { 
+       C_Decision: Pending conflicts
+       C_Nombre: 0
+} 
+
+
+ Result: 
+
+ R_Total: 5
+ { 
+       R_Decision: Included
+       R_Paper: 4
+       R_Pourcentage: 80.0
+} 
+
+ { 
+       R_Decision: Excluded
+       R_Paper: 1
+       R_Pourcentage: 20.0
+} 
+
+ { 
+       R_Decision: In conflict
+       R_Paper: 0
+       R_Pourcentage: 0.0
+} 
+
+ { 
+       R_Decision: In review
+       R_Paper: 0
+       R_Pourcentage: 0.0
+} 
+
+ { 
+       R_Decision: Pending
+       R_Paper: 0
+       R_Pourcentage: 0.0
+} 
+
+
+ }
+
+ Phase: Screen the rest
+
+ { 
+DecisionPerUser: 
+
+
+ { 
+       D_User: Soilihi BEN SOILIHI
+       D_Included: 4
+       D_Excluded: 0
+       D_InConfclict: 0
+} 
+
+
+ StatisticsOnExclusionCriteria: 
+
+
+ { 
+       S_Criteria: null
+       S_Nombre: 0
+       S_Pourcentage: 0.0
+} 
+
+
+ ConflictResolution: 
+
+
+ { 
+       C_Decision: Resolved included
+       C_Nombre: 0
+} 
+
+ { 
+       C_Decision: Resolved excluded
+       C_Nombre: 0
+} 
+
+ { 
+       C_Decision: Pending conflicts
+       C_Nombre: 0
+} 
+
+
+ Result: 
+
+ R_Total: 4
+ { 
+       R_Decision: Included
+       R_Paper: 4
+       R_Pourcentage: 100.0
+} 
+
+ { 
+       R_Decision: Excluded
+       R_Paper: 0
+       R_Pourcentage: 0.0
+} 
+
+ { 
+       R_Decision: In conflict
+       R_Paper: 0
+       R_Pourcentage: 0.0
+} 
+
+ { 
+       R_Decision: In review
+       R_Paper: 0
+       R_Pourcentage: 0.0
+} 
+
+ { 
+       R_Decision: Pending
+       R_Paper: 0
+       R_Pourcentage: 0.0
+} 
+
+
+ }
+
+ Classification: 
+
+{ question: Does the paper talk about Xtext grammar
+ { response: talk about Xtext result: 4 }} 
